@@ -1,4 +1,3 @@
-import Moment from 'react-moment';
 import moment from 'moment';
 
 export const initialState={
@@ -53,7 +52,7 @@ export const reducer=(state,action)=>{
                 todos:[...state.todos.filter((item)=>{
                     if(item.completed === false){
                         return item;
-                    }
+                    }else return null;
                 })]
             }
         default:

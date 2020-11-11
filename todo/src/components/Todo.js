@@ -34,7 +34,8 @@ return(
 <div className={handleClassname()}
 onClick={(e)=>{props.handleComplete(props.todo.id)}}>
     <p>{props.todo.item} </p>
-    <p className="completeDate"> Tag : {props.todo.tag} <br/>To be completed by: {moment(props.todo.completeBy).add(1, 'days').calendar()}</p>
+    <p className="completeDate"> <b>Tag</b> : {props.todo.tag} <br/>
+    <b>Due by</b>: {moment(props.todo.completeBy).add(1, 'days').calendar()}</p>
     <p className={handleDueDate()}>This Task is due for Completion !</p>
 </div>
 )

@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import Moment from 'react-moment';
+import {Card,CardTitle} from 'reactstrap';
 import moment from 'moment';
 import gsap from "gsap";
 

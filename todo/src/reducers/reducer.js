@@ -28,6 +28,7 @@ export const reducer=(state,action)=>{
     switch(action.type){
         case 'ADD_TASK' :{
             return {
+                ...state, //ALWAYS ALWAYS spread open state and then modify the property 
                 todos:[...state.todos,
                 {item:action.payload.task,
                  completed:false,
@@ -41,19 +42,19 @@ export const reducer=(state,action)=>{
         case 'COMPLETE_TASK':
             const newState=state.todos.map((item)=>{
                 if(item.id === action.payload){
-                    return {...item,completed: !item.completed}
+                    return {...item,
+                        completed: !item.completed,
+                       }
                 }else return item;
             })
             return {
+                ...state, 
                 todos:newState
             };
         case 'CLEAR_COMPLETE':
             return {
-                todos:[...state.todos.filter((item)=>{
-                    if(item.completed === false){
-                        return item;
-                    }else return null;
-                })]
+                ...state,
+                todos:state.todos.filter(item => !item.completed)
             }
         default:
             return state;
